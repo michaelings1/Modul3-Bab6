@@ -1,18 +1,23 @@
-public class Manager extends Pekerja {
-    private String departemen;
+public class Manager extends Employee {
+    private double bonus;
 
-    public Manager(String departemen, double gaji, int tahun, int bulan, int tanggal, int jumlahAnak, String nama, String nik, boolean jenisKelamin, boolean menikah) {
-        super(gaji, tahun, bulan, tanggal, jumlahAnak, nama, nik, jenisKelamin, menikah);
-        this.departemen = departemen;
+    public Manager(String name, double salary, int year, int month, int day){
+        super(name, salary, year, month, day);
+        bonus = 0;
     }
 
-    @Override
-    public double getPendapatan() {
-        return super.getPendapatan() + (0.10 * getGaji());
+    //Untuk menjawab nomor 4
+    // public Manager(String name, double salary, int year, int month, int day, double bonus){
+    //     super(name, salary, year, month, day);
+    //     this.bonus = bonus;
+    // }
+
+    public void setBonus(double bonus){
+        this.bonus = bonus;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "\ndepartemen : " + departemen;
+    public double getSalary(){
+        double baseSalary = super.getSalary();
+        return baseSalary + bonus;
     }
 }
